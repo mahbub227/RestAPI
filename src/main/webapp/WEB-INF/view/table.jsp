@@ -1,11 +1,7 @@
-<script type="text/javascript">
-					$(document).ready(function() {
-						ajaxGet();
-					});
-				</script>
+
 <div class="panel panel-default">
 <div class="panel-heading">
-					<a href="${path}/create" class="btn btn-info">Create</a>
+					<a href="${path}/form" class="btn btn-info">Create</a>
 				</div>
 				<div class="panel-body">
 
@@ -22,7 +18,16 @@
 							</tr>
 						</thead>
 						<tbody>
-							
+						<c:forEach items="${employees}"	 var="employee">
+						<tr>
+						<td>${employee.employeeName}</td>
+						<td>${employee.workPhone}</td>
+						<td>${employee.workEmail}</td>
+						<td>${employee.department}</td>
+						<td>${employee.jobTitle}</td>
+						<td>${employee.manager}</td>
+						</tr>
+						</c:forEach>
 						</tbody>
 
 					</table>
