@@ -30,13 +30,14 @@ private static final long serialVersionUID = 1L;
 	@Column(name="id")
 	private Integer employeeId;
 	@Column(unique=true,name="work_mobile")
-	@NotNull(message="Input your Mobile Number!")
+	@NotNull(message="Mobile Number is Empty!")
 	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
+	@Size(min=8, max=15, message="Name must be atleast 8 character and atmost 15 character")
 	private String workMobile;
 	@NotNull(message="Input your name!")
 	@Size(min=5, max=20, message="Name must be atleast 5 character and atmost 20 character")
 	@Column(name="employee_name")
-	@Pattern(regexp=ConstantUtils.CHAR_PATTERN,message="Only Characters Please!")
+	@Pattern(regexp=ConstantUtils.CHAR_PATTERN,message="Only Letters Please!")
 	private String employeeName;
 	@NotNull(message="Input your work Address!")
 	@Column(name="work_address")
@@ -55,7 +56,7 @@ private static final long serialVersionUID = 1L;
 	@NotNull(message="Input your work Location!")
 	@Column(name="work_location")
 	private String workLocation;
-	@Size(min=0,max=10, message="Enter valid Work Phone")
+	@Size(min=8,max=12, message="Enter valid Work Phone must be atleast 8 and atmost 13 digits!")
 	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	@Column(unique=true,name="work_phone")
 	private String workPhone;
@@ -68,13 +69,16 @@ private static final long serialVersionUID = 1L;
 	private String nationality;
 	@NotNull(message="Input your Identification No!")
 	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
+	@Size(min=10,max=15, message="Identification number must be between 10-15 digits!")
 	@Column(name="identification_no", unique=true)
 	private String identificationNo;
 	@NotNull(message="Input your Passport No!")
+	@Size(min=10,max=15, message="Identification number must be between 10-15 digits!")
 	@Column(name="passport_no", unique=true)
 	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	private String passportNo;
 	@NotNull(message="Input your Bank A/C No!")
+	@Size(min=7,max=15, message="Identification number must be between 7-15 digits!")
 	@Column(name="bank_ac_no", unique=true)
 	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	private String bankAcNo;

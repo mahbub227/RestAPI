@@ -16,9 +16,9 @@ function fetchTable(){
 
 	$table
 	.DataTable({
-		lengthMenu : [ [ 5, 10, -1 ],
-				[ '5 Records', '10 Records', 'All' ] ],
-		pageLength : 5,
+		lengthMenu : [ [ 10, 25, -1 ],
+				[ '10 Records', '25 Records', 'All' ] ],
+		pageLength : 10,
 		ajax : {
 			url : jsonUrl,
 			dataSrc : ''

@@ -21,9 +21,12 @@
 
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" />
-
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 <script type="text/javascript"
 	src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+	<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
 	window.menu = '${title}';
 	window.contextRoot = '${contextRoot}';
@@ -34,15 +37,19 @@
 	<div class="row">
 		<div class="container">
 			<%@include file="./shared/navbar.jsp"%>
-
+			<div class="row">
+			<div class="col-md-3">
+			<%@include file="./shared/sidebar.jsp"%>
+			</div>
+			<div class="col-md-9">
 			<c:if test="${userClickHome == true}">
 				<%@include file="table.jsp"%></c:if>
 			<c:if test="${userClickCreate == true}">
 				<%@include file="create.jsp"%></c:if>
 			<c:if test="${userClickShowEmployee == true}">
 				<%@include file="singleEmployee.jsp"%></c:if>
-
-
+				</div>
+				</div>
 			<%@include file="./shared/footer.jsp"%>
 		</div>
 	</div>

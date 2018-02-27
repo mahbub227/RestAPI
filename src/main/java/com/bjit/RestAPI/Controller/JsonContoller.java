@@ -25,8 +25,7 @@ import com.bjit.RestAPI.util.ErrorUtils;
 public class JsonContoller {
 	
 	@Autowired
-	EmployeeService employeeService;
-	
+	private EmployeeService employeeService;
 
 	@RequestMapping("/list")
 	@ResponseBody
@@ -42,14 +41,17 @@ public class JsonContoller {
 	}
 	
 	
-	
 	@GetMapping("/form")
 	public String createForm(@RequestParam int id, Model model) {
-		if(id==0) {
-		model.addAttribute("employeeForm", new Employee());
+		
+		
 		model.addAttribute("employees",employeeService.employeeList());
+		if(id==0) {
+			
+		model.addAttribute("employeeForm", new Employee());
 		}
 		else {
+			
 			model.addAttribute("employeeForm", employeeService.findEmployee(id));
 		}
 		model.addAttribute("userClickCreate",true);
@@ -59,7 +61,8 @@ public class JsonContoller {
 	@ResponseBody
 	@PostMapping(value="/add", consumes =MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public String addEmployee(@Valid @RequestBody Employee employee,BindingResult result) {
-		 if(result.hasErrors()) {
+		 
+		if(result.hasErrors()) {
 			 return ErrorUtils.customErrors(result.getAllErrors());
 		 }else {
 		 return employeeService.addEmployee(employee);

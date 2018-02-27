@@ -22,11 +22,15 @@ $(function(){
 			data : JSON.stringify(data),
 			success:function(data){
 				if(data.status=="success"){
-					alert(data.message);
+					toastr.success(data.message,data.title,{
+						closeButton:true
+					})
 					window.location.href = "/";
 				}
 				else{
-					alert(data.message);
+					toastr.error(data.message,data.title,{
+						closeButton:true
+					})
 				}
 				
 				

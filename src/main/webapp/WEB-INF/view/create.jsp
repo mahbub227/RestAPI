@@ -1,17 +1,19 @@
 <script type="text/javascript" src="${path}/js/jquery.save.js"></script>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<div class="panel panel-default" >
 <div class="row">
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
-			<li><a href="${contextRoot}/employee">Employee</a></li>
+			<li><a href="/">Employee</a></li>
 			<li class="active">New</li>
-
+			<li class="active">${employee.employeeName}</li>
 		</ol>
 	</div>
 </div>
+
 <form:form method="post" action="${path}/add" commandName="employeeForm" id="submitEmployeeForm">
 	<form:hidden path="employeeId"/>
-	<div class="panel panel-default" >
+	
 		<div class="panel-heading">
 		<form:button class="btn btn-success" >Save</form:button>
 			 <a class="btn btn-danger" href="${path}">Discard</a>
@@ -22,14 +24,15 @@
 					
 				</div>
 				<div class="col-sm-9">
-					<div class="form-group">
+					<div class="row">
 						<label class="control-label" for="employeeName"> Name</label>
 						<form:input type="text" path="employeeName" id="employeeName"
 							placeholder="Employee Name" class="form-control" />
-						<form:errors path="employeeName" cssClass="help-block" element="em" />
+						<form:errors path="employeeName" cssClass="help-block"
+							element="em" />
 					</div>
-					
-					<div class="form-group">
+
+					<div class="row">
 								
 									<select class="form-control" id="jobType" path="jobType">
 										<option value="Part Time">Part Time</option>
@@ -52,7 +55,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<h1>Contact Information</h1>
-								<div class="form-group">
+								<div class="row">
 								<label class="control-label col-md-4" for="workAddress">Work
 									Address</label>
 								<div class="col-md-8">
@@ -61,7 +64,7 @@
 									<form:errors path="workAddress" cssClass="help-block" element="em" />
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="workMobile">Work
 									Mobile</label>
 								<div class="col-md-8">
@@ -70,7 +73,7 @@
 									<form:errors path="workMobile" cssClass="help-block" element="em" />
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="workLocation">Work
 									Location</label>
 								<div class="col-md-8">
@@ -80,7 +83,7 @@
 										element="em" />
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="workEmail">Work
 									Email</label>
 								<div class="col-md-8">
@@ -90,7 +93,7 @@
 								</div>
 							</div>
 
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="workPhone">Work
 									Phone</label>
 								<div class="col-md-8">
@@ -106,7 +109,7 @@
 
 						<div class="col-sm-6">
 							<h1>Position</h1>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="department">Department</label>
 								<div class="col-md-8">
 									<form:select class="form-control" id="department" path="department">
@@ -120,7 +123,7 @@
 								</div>
 							</div>
 
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="jobTitle">Job
 									Title</label>
 								<div class="col-md-8">
@@ -136,20 +139,20 @@
 								</div>
 							</div>
 
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4">Manager</label>
 								<div class="col-md-8">
 									<form:select path="manager" items="${employees}"
-										itemLabel="employeeName" itemValue="employeeId"
+										itemLabel="employeeName" itemValue="employeeName"
 										class="form-control" />
 								</div>
 							</div>
 
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4">Coach</label>
 								<div class="col-md-8">
 									<form:select path="coach" items="${employees}"
-										itemLabel="employeeName" itemValue="employeeId"
+										itemLabel="employeeName" itemValue="employeeName"
 										class="form-control" />
 								</div>
 							</div>
@@ -159,7 +162,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="form-group">
+							<div class="row">
 								<form:textarea path="otherInformation" id="otherInformation"
 									rows="4" placeholder="Other Information" class="form-control" />
 								<form:errors path="otherInformation" cssClass="help-block"
@@ -174,8 +177,8 @@
 				<div id="personal" class="tab-pane fade">
 					<div class="row">
 						<div class="col-md-6">
-							<h1>Citizenship & Other Information</h1>
-							<div class="form-group">
+							<h1>Citizenship</h1>
+							<div class="row">
 								<label class="control-label col-md-4" for="nationality">Nationality</label>
 								<div class="col-md-8">
 									<form:select class="form-control" id="nationality"
@@ -189,8 +192,8 @@
 									</form:select>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="control-label col-md-4" for="identificationNo">Identification
+							<div class="row">
+								<label class="control-label col-md-4" for="identificationNo">ID
 									No</label>
 								<div class="col-md-8">
 									<form:input type="text" path="identificationNo"
@@ -199,7 +202,7 @@
 										element="em" />
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="passportNo">Passport
 									No</label>
 								<div class="col-md-8">
@@ -208,7 +211,7 @@
 									<form:errors path="passportNo" cssClass="help-block" element="em" />
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="bankAcNo">Bank A/C No</label>
 								<div class="col-md-8">
 									<form:input type="text" path="bankAcNo" id="bankAcNo"
@@ -221,7 +224,7 @@
 
 						<div class="col-md-6">
 							<h1>Contact Information</h1>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="homeAddress">Home
 									Address</label>
 								<div class="col-md-8">
@@ -236,7 +239,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<h1>Status</h1>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="gender">Gender</label>
 								<div class="col-md-8">
 									<form:select class="form-control" id="gender" path="gender">
@@ -246,7 +249,7 @@
 									</form:select>
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="maritalStatus">Marital
 									Status</label>
 								<div class="col-md-8">
@@ -261,7 +264,7 @@
 						</div>
 						<div class="col-md-6">
 							<h1>Birth</h1>
-							<div class="form-group">
+							<div class="row">
 								<label class="control-label col-md-4" for="dateOfBirth">Date
 									Of Birth</label>
 								<div class="col-md-8">
@@ -276,5 +279,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 </form:form>
+</div>
