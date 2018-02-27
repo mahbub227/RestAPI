@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="${path}/js/jquery.save.js"></script>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="row">
 	<div class="col-xs-12">
@@ -9,12 +9,12 @@
 		</ol>
 	</div>
 </div>
-<form:form method="post" action="${path}/add" commandName="employeeForm">
+<form:form method="post" action="${path}/add" commandName="employeeForm" id="submitEmployeeForm">
 	<form:hidden path="employeeId"/>
 	<div class="panel panel-default" >
 		<div class="panel-heading">
-		<form:button class="btn btn-success" value="Save">Save</form:button>
-			 <a class="btn btn-danger" href="${path}/list">Discard</a>
+		<form:button class="btn btn-success" >Save</form:button>
+			 <a class="btn btn-danger" href="${path}">Discard</a>
 		</div>
 		<div class="panel-body">
 			<div class="row">

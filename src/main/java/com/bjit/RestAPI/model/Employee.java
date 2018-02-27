@@ -11,9 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.bjit.RestAPI.util.ConstantUtils;
 
 @Entity
 @Table(name="employee_details")
@@ -25,23 +30,33 @@ private static final long serialVersionUID = 1L;
 	@Column(name="id")
 	private Integer employeeId;
 	@Column(unique=true,name="work_mobile")
+	@NotNull(message="Input your Mobile Number!")
+	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	private String workMobile;
 	@NotNull(message="Input your name!")
 	@Size(min=5, max=20, message="Name must be atleast 5 character and atmost 20 character")
 	@Column(name="employee_name")
+	@Pattern(regexp=ConstantUtils.CHAR_PATTERN,message="Only Characters Please!")
 	private String employeeName;
+	@NotNull(message="Input your work Address!")
 	@Column(name="work_address")
 	private String workAddress;
 	@Column(name="job_type")
 	private String jobType;
 	@Column(name="other_information")
 	private String otherInformation;
+	@NotNull(message="Input your work email!")
+	@Email(message="Please provide a valid email address")
+	@Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
 	@Column(unique=true,name="work_email")
 	private String workEmail;
 	@Column(name="employee_image")
 	private String employeeImage;
+	@NotNull(message="Input your work Location!")
 	@Column(name="work_location")
 	private String workLocation;
+	@Size(min=0,max=10, message="Enter valid Work Phone")
+	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	@Column(unique=true,name="work_phone")
 	private String workPhone;
 	private String department;
@@ -49,19 +64,29 @@ private static final long serialVersionUID = 1L;
 	private String jobTitle;
 	private String manager;
 	private String coach;
+	
 	private String nationality;
+	@NotNull(message="Input your Identification No!")
+	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	@Column(name="identification_no", unique=true)
 	private String identificationNo;
+	@NotNull(message="Input your Passport No!")
 	@Column(name="passport_no", unique=true)
+	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	private String passportNo;
+	@NotNull(message="Input your Bank A/C No!")
 	@Column(name="bank_ac_no", unique=true)
+	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	private String bankAcNo;
 	private String gender;
 	@Column(name="home_address")
+	@NotNull(message="Input your Home Address!")
 	private String homeAddress;
 	@Column(name="marital_status")
 	private String maritalStatus;
+	@NotNull(message="Input your Birth Date!")
 	@Column(name="date_of_birth")
+	@Past(message="Invalid Date of Birth")
 	private java.sql.Date dateOfBirth;
 	private boolean active;
 	@Transient

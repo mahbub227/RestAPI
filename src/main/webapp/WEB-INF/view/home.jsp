@@ -16,7 +16,8 @@
 <script type="text/javascript"
 	src="${path}/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="${path}/jquery-boot.js"></script>
+<script type="text/javascript" src="${path}/js/jquery.boot.js"></script>
+<script type="text/javascript" src="${path}/js/jquery.save.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" />

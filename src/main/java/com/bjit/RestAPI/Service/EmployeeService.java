@@ -7,7 +7,7 @@ import com.bjit.RestAPI.model.Employee;
 public interface EmployeeService {
 	
 	public List<Employee> employeeList();
-	public Employee addEmployee(Employee employee);
+	public String addEmployee(Employee employee);
 	public Employee findEmployee(Integer employeeId);
 	
 }

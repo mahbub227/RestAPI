@@ -1,7 +1,6 @@
-
 <div class="panel panel-default">
 <div class="panel-heading">
-					<a href="${path}/form" class="btn btn-info">Create</a>
+						<a href="javascript:void(0);" onclick="addForm(0)" class="btn btn-info">Create</a>
 				</div>
 				<div class="panel-body">
 
@@ -18,16 +17,16 @@
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${employees}"	 var="employee">
-						<tr>
-						<td>${employee.employeeName}</td>
-						<td>${employee.workPhone}</td>
-						<td>${employee.workEmail}</td>
-						<td>${employee.department}</td>
-						<td>${employee.jobTitle}</td>
-						<td>${employee.manager}</td>
-						</tr>
-						</c:forEach>
+							<c:forEach items="${employeeList}" var="employees">
+								<tr>
+									<td>${employees.employeeName}</td>
+									<td>${employees.workPhone}</td>
+									<td>${employees.workEmail}</td>
+									<td>${employees.department}</td>
+									<td>${employees.jobTitle}</td>
+									<td>${employees.manager}</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 
 					</table>
