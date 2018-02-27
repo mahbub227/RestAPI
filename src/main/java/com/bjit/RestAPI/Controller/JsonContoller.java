@@ -70,7 +70,7 @@ public class JsonContoller {
 	}
 	
 	@RequestMapping(value= "/show")
-	public ModelAndView showSingleProduct(@RequestParam int id){
+	public ModelAndView showSingleEmployee(@RequestParam int id){
 		
 		ModelAndView mv= new ModelAndView("home");
 		Employee employee = employeeService.findEmployee(id);

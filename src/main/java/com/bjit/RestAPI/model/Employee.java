@@ -30,9 +30,9 @@ private static final long serialVersionUID = 1L;
 	@Column(name="id")
 	private Integer employeeId;
 	@Column(unique=true,name="work_mobile")
-	@NotNull(message="Mobile Number is Empty!")
+	@NotNull(message="Work Mobile is Empty!")
 	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
-	@Size(min=8, max=15, message="Name must be atleast 8 character and atmost 15 character")
+	@Size(min=8, max=12, message="Work Mobile must be atleast 8 digits and atmost 15 digits")
 	private String workMobile;
 	@NotNull(message="Input your name!")
 	@Size(min=5, max=20, message="Name must be atleast 5 character and atmost 20 character")
@@ -44,6 +44,7 @@ private static final long serialVersionUID = 1L;
 	private String workAddress;
 	@Column(name="job_type")
 	private String jobType;
+	@Size(max=500, message="Other Information must be lower than 500 words!")
 	@Column(name="other_information")
 	private String otherInformation;
 	@NotNull(message="Input your work email!")
@@ -53,10 +54,11 @@ private static final long serialVersionUID = 1L;
 	private String workEmail;
 	@Column(name="employee_image")
 	private String employeeImage;
+	@Size(max=50,message="Home Address must be less than 50 characters")
 	@NotNull(message="Input your work Location!")
 	@Column(name="work_location")
 	private String workLocation;
-	@Size(min=8,max=12, message="Enter valid Work Phone must be atleast 8 and atmost 13 digits!")
+	@Size(min=8,max=12, message="Enter valid Work Phone must be atleast 8 and atmost 12 digits!")
 	@Pattern(regexp=ConstantUtils.MOBILE_PATTERN,message="Please Enter Only Digits!")
 	@Column(unique=true,name="work_phone")
 	private String workPhone;
@@ -85,6 +87,7 @@ private static final long serialVersionUID = 1L;
 	private String gender;
 	@Column(name="home_address")
 	@NotNull(message="Input your Home Address!")
+	@Size(max=50,message="Home Address must be less than 50 characters")
 	private String homeAddress;
 	@Column(name="marital_status")
 	private String maritalStatus;
