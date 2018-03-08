@@ -61,7 +61,7 @@ public class JsonContoller {
 	@ResponseBody
 	@PostMapping(value="/add", consumes =MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public String addEmployee(@Valid @RequestBody Employee employee,BindingResult result) {
-		 
+		 System.out.println(employee+"test");
 		if(result.hasErrors()) {
 			 return ErrorUtils.customErrors(result.getAllErrors());
 		 }else {
